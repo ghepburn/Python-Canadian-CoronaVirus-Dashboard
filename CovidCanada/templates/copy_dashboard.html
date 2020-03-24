@@ -1,0 +1,91 @@
+{% extends 'layout.html' %}
+{% block content %}
+<div class="bg-danger">
+
+	<div class="container">	
+		<div class="row pt-5 pb-5">
+			<div class="col text-center">
+				<h2>Total Cases</h2><br>
+				<h3>{{data["total_cases"]}}</h3>	
+			</div>
+			<div class="col text-center">
+				<h2>Total Recovered</h2><br>
+				<h3>{{data["total_recovered"]}}</h3>	
+			</div>
+			<div class="col text-center">
+				<h2>Total Deaths</h2><br>
+				<h3>{{data["total_deaths"]}}</h3>	
+			</div>
+			<div class="col text-center">
+				<h2>Serious Cases</h2><br>
+				<h3>{{data["total_serious_cases"]}}</h3>	
+			</div>
+		</div>
+	</div>
+
+</div>
+<div class="bg-light">
+
+	<div class="container">
+		<div class="row pt-5 pb-5">
+			<div class="col-3 border-right">
+				<div class="m-auto pt-2 pb-2 text-center">
+					<h3><strong>Today Only</strong></h3>
+					<br>
+					<h4>New Cases: {{ data["total_new_cases_today"] }}</h4>
+					<br>
+					<h4>Deaths: {{ data["total_new_deaths_today"] }}</h4>
+				</div>
+			</div>
+			<div class="col">
+				<div class="m-auto pt-2 pb-2 text-center">
+					<h6>Timeline</h6>	
+				</div>
+				<div class="text-center pt-5">
+					<p>## Show Time Chart Here Pls</p>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</div>
+<div class="bg-danger">
+	
+	<div class="container">
+		<div class="row pt-5 pb-5">
+			<h6 class="text-center">Relative To Global Statistics</h6>
+			
+		</div>
+	</div>
+
+</div>
+<div class="bg-light">
+	
+	<div class="container">
+		<h4 class="mt-5 mb-5">Recent Canadian News</h4>
+
+		<div class="m-auto">
+			
+			{% for article in news %}	
+
+				<div class="row border-top pb-5 text-center">
+					<div class="row pt-4 pb-3">
+						<div class="col-2">
+							<p><strong>{{ news[article]["time"] }}</strong></p>
+						</div>
+						<div class="col">
+							<h4>{{ news[article]["title"] }}</h4>
+						</div>
+					</div>
+					<a class="m-auto" href="{{ news[article]["url"] }}">{{ news[article]["url"] }}</a>
+				</div>
+
+			{% endfor %}
+
+		</div>
+	</div>
+
+
+</div>
+
+{% endblock %}

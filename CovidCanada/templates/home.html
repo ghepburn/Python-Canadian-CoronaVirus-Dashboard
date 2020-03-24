@@ -1,0 +1,14 @@
+{% extends 'layout.html' %}
+{% block content %}
+<div class="bg-danger">
+	{% for entry in data %}
+		<p>{{ entry.getDate() }}</p>
+		<p>{{ entry.getDeaths() }}</p>
+		<p>{{ entry.getCases() }}</p>
+		<p>{{ entry.getTotalCases() }}</p>
+		<p>{{ entry.getTotalRecoveries() }}</p>
+		<p>{{ entry.getTotalDeaths() }}</p>
+	{% endfor %}
+</div>
+
+{% endblock %}
